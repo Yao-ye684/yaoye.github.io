@@ -3,177 +3,376 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>淮北师范大学 - 学校简介</title>
+    <title>淮北师范大学 - 博学慎思 砺行致远</title>
     <style>
         *{
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Microsoft YaHei", sans-serif;
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
             scroll-behavior: smooth;
         }
         body{
-            background-color: #f7f9fc;
-            color: #333;
+            background-color: #f0f4f8;
+            color: #2d3748;
             line-height: 1.8;
         }
-        .container{
-            max-width: 1050px;
+        /* 导航栏 */
+        nav{
+            background: linear-gradient(90deg, #0c4b92, #1a5fb4);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(12,75,146,0.2);
+        }
+        .nav-container{
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
         }
-        header{
-            text-align: center;
-            padding: 60px 0;
-            background: linear-gradient(135deg, #0c4b92, #1a5fb4);
+        .nav-logo{
             color: white;
-            border-radius: 16px;
-            margin-bottom: 35px;
-            box-shadow: 0 6px 20px rgba(26,95,180,0.15);
-            animation: fadeIn 1s ease;
+            font-size: 22px;
+            font-weight: bold;
         }
-        @keyframes fadeIn {
-            from{opacity:0; transform: translateY(-20px);}
-            to{opacity:1; transform: translateY(0);}
+        .nav-links{
+            display: flex;
+            gap: 30px;
+        }
+        .nav-links a{
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover{
+            color: #ffd700;
+        }
+        /* 头部横幅 */
+        header{
+            height: 450px;
+            background: linear-gradient(rgba(12,75,146,0.7), rgba(26,95,180,0.7)),
+                        url("https://picsum.photos/id/1082/1920/1080");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
         }
         header h1{
-            font-size: 38px;
-            margin-bottom: 10px;
+            font-size: 48px;
+            margin-bottom: 15px;
+            animation: fadeInDown 1s ease;
         }
         header p{
-            font-size: 19px;
-            opacity: 0.95;
+            font-size: 20px;
+            max-width: 800px;
+            animation: fadeInUp 1s ease;
+        }
+        @keyframes fadeInDown {
+            from{opacity:0; transform: translateY(-30px);}
+            to{opacity:1; transform: translateY(0);}
+        }
+        @keyframes fadeInUp {
+            from{opacity:0; transform: translateY(30px);}
+            to{opacity:1; transform: translateY(0);}
+        }
+        /* 容器 */
+        .container{
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        /* 板块标题 */
+        .section-title{
+            font-size: 32px;
+            color: #1a5fb4;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .section-title::after{
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: #ffd700;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        /* 卡片布局 */
+        .card-grid{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
         }
         .card{
             background: white;
-            border-radius: 16px;
-            padding: 32px;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
             transition: all 0.3s ease;
         }
         .card:hover{
-            transform: translateY(-6px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
         }
-        .card h2{
+        .card h3{
             color: #1a5fb4;
-            margin-bottom: 18px;
-            font-size: 25px;
-            border-left: 6px solid #1a5fb4;
-            padding-left: 14px;
+            font-size: 22px;
+            margin-bottom: 15px;
         }
         .card p{
-            font-size: 16px;
-            margin-bottom: 14px;
-            text-align: justify;
-        }
-        .info-list{
-            padding-left: 26px;
-        }
-        .info-list li{
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
-        .banner{
-            width:100%;
-            height:260px;
-            background: linear-gradient(rgba(26,95,180,0.1),rgba(26,95,180,0.2)),url("https://picsum.photos/id/1082/1200/300");
-            background-size:cover;
-            background-position:center;
-            border-radius:16px;
-            margin-bottom:30px;
-            animation: slide 12s infinite alternate;
-        }
-        @keyframes slide {
-            0%{background-position:center top;}
-            100%{background-position:center bottom;}
-        }
-        .tags{
-            display:flex;
-            flex-wrap:wrap;
-            gap:10px;
-            margin-top:10px;
-        }
-        .tag{
-            background:#e6f0fb;
-            color:#1a5fb4;
-            padding:6px 14px;
-            border-radius:20px;
-            font-size:14px;
-        }
-        footer{
-            text-align: center;
-            padding: 30px;
-            color: #666;
-            margin-top: 40px;
             font-size: 15px;
+            color: #4a5568;
         }
+        .card .tag{
+            display: inline-block;
+            background: #e6f0fb;
+            color: #1a5fb4;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin: 5px 5px 5px 0;
+        }
+        /* 数据统计 */
+        .stats{
+            background: linear-gradient(135deg, #1a5fb4, #0c4b92);
+            color: white;
+            padding: 50px 0;
+            margin: 60px 0;
+        }
+        .stats-grid{
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        .stat-item h4{
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .stat-item p{
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        /* 校园生活 */
+        .campus-life{
+            margin-bottom: 60px;
+        }
+        .life-row{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            align-items: center;
+        }
+        .life-text{
+            flex: 1;
+            min-width: 300px;
+        }
+        .life-img{
+            flex: 1;
+            min-width: 300px;
+            height: 300px;
+            background: url("https://picsum.photos/id/1076/800/600");
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+        }
+        /* 页脚 */
+        footer{
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 14px;
+        }
+        /* 响应式 */
         @media (max-width: 768px) {
-            header h1{
-                font-size: 28px;
+            .nav-links{
+                display: none;
             }
-            .container{ padding:12px; }
-            .card{ padding:22px; }
-            .banner{ height:180px; }
+            header h1{
+                font-size: 32px;
+            }
+            .section-title{
+                font-size: 26px;
+            }
         }
     </style>
 </head>
 <body>
-<div class="container">
+    <!-- 导航栏 -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">淮北师范大学</div>
+            <div class="nav-links">
+                <a href="#overview">学校概况</a>
+                <a href="#history">办学历史</a>
+                <a href="#majors">学科专业</a>
+                <a href="#features">办学特色</a>
+                <a href="#campus">校园生活</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 头部横幅 -->
     <header>
         <h1>淮北师范大学</h1>
-        <p>Huaibei Normal University</p>
+        <p>博学、慎思、砺行、致远 | 厚德、博学、求是、笃行</p>
+        <p>位于国家能源基地、国家园林城市安徽省淮北市，是一所多科性省属重点大学</p>
     </header>
 
-    <div class="banner"></div>
+    <div class="container">
+        <!-- 学校概况 -->
+        <section id="overview">
+            <h2 class="section-title">学校概况</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>办学定位</h3>
+                    <p>学校以教师教育为鲜明特色，是安徽省基础教育师资培养的核心基地，同时大力发展应用型学科，为地方经济社会发展提供人才与智力支撑。</p>
+                    <div class="tags">
+                        <span class="tag">省属重点大学</span>
+                        <span class="tag">师范特色</span>
+                        <span class="tag">多学科协调发展</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>育人目标</h3>
+                    <p>秉承“博学、慎思、砺行、致远”的校训，坚持立德树人根本任务，培养具有家国情怀、创新精神、实践能力的高素质应用型人才。</p>
+                    <div class="tags">
+                        <span class="tag">立德树人</span>
+                        <span class="tag">实践育人</span>
+                        <span class="tag">创新精神</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>社会声誉</h3>
+                    <p>建校近50年来，为全国培养了10万余名优秀毕业生，遍布教育、科研、管理等各个领域，深受用人单位好评，社会美誉度持续提升。</p>
+                    <div class="tags">
+                        <span class="tag">就业率高</span>
+                        <span class="tag">社会认可</span>
+                        <span class="tag">校友遍布全国</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <div class="card">
-        <h2>学校概况</h2>
-        <p>淮北师范大学位于国家能源基地、国家园林城市安徽省淮北市，是一所多科性省属重点大学。学校始建于1974年，具有深厚的师范教育底蕴和鲜明的办学特色，为安徽省乃至全国培养了大批优秀教育工作者和专业技术人才。</p>
-        <p>学校秉承“博学、慎思、砺行、致远”的校训精神，坚持立德树人，着力打造高水平、有特色、应用型人才培养体系。</p>
-        <div class="tags">
-            <span class="tag">省属重点大学</span>
-            <span class="tag">师范特色</span>
-            <span class="tag">多学科协调发展</span>
-            <span class="tag">安徽省人才培养基地</span>
+        <!-- 办学历史 -->
+        <section id="history">
+            <h2 class="section-title">办学历史</h2>
+            <div class="card">
+                <p>学校始建于1974年，前身是安徽师范大学淮北分校。1979年更名为淮北煤炭师范学院，隶属原煤炭工业部，面向全国招生。2000年学校划转安徽省，实行“中央与地方共建，以地方管理为主”的管理体制。2010年经教育部批准，更名为淮北师范大学，正式迈入综合性师范大学发展新阶段。</p>
+                <p>历经近半个世纪的风雨兼程，学校从一所单科性师范院校，发展成为涵盖八大学科门类、多学科协调发展的省属重点大学，积淀了深厚的办学底蕴和鲜明的师范特色。</p>
+            </div>
+        </section>
+
+        <!-- 学科与专业 -->
+        <section id="majors">
+            <h2 class="section-title">学科与专业</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>学科布局</h3>
+                    <p>学科覆盖法学、教育学、文学、历史学、理学、工学、管理学、艺术学等八大学科门类，形成了以教育学、理学为优势，多学科交叉融合的学科体系。</p>
+                </div>
+                <div class="card">
+                    <h3>专业设置</h3>
+                    <p>开设50余个本科专业，其中师范专业占比近40%，拥有国家级一流本科专业建设点、省级特色专业、省级重点学科等多个优质专业点。</p>
+                </div>
+                <div class="card">
+                    <h3>研究生教育</h3>
+                    <p>拥有多个硕士学位授权一级学科和专业学位授权点，形成本硕贯通的人才培养体系，为学生继续深造提供广阔平台。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 办学特色 -->
+        <section id="features">
+            <h2 class="section-title">办学特色与优势</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>师范教育底蕴深厚</h3>
+                    <p>作为安徽省基础教育师资培养的核心基地，师范专业历史悠久、实力雄厚，培养了大批优秀中小学教师和教育管理人才。</p>
+                </div>
+                <div class="card">
+                    <h3>师资力量雄厚</h3>
+                    <p>现有专任教师1200余人，其中高级职称教师占比超40%，拥有一批省级教学名师、学术带头人，教学科研水平稳步提升。</p>
+                </div>
+                <div class="card">
+                    <h3>实践育人特色鲜明</h3>
+                    <p>与地方中小学、企事业单位建立广泛合作，建设实习实训基地200余个，注重学生实践能力和创新精神培养。</p>
+                </div>
+                <div class="card">
+                    <h3>校园环境优美</h3>
+                    <p>校园占地面积2000余亩，绿树成荫、环境雅致，是安徽省花园式单位，为学生提供了舒适的学习生活环境。</p>
+                </div>
+                <div class="card">
+                    <h3>科研平台完善</h3>
+                    <p>拥有多个省级重点实验室、工程研究中心和人文社科研究基地，科研成果丰硕，为教学和地方发展提供有力支撑。</p>
+                </div>
+                <div class="card">
+                    <h3>就业质量优异</h3>
+                    <p>毕业生就业率连续多年保持在90%以上，师范类毕业生深受安徽省及周边地区中小学欢迎，非师范类毕业生在各行业表现突出。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 校园生活 -->
+        <section id="campus" class="campus-life">
+            <h2 class="section-title">校园生活</h2>
+            <div class="life-row">
+                <div class="life-text">
+                    <h3>丰富多彩的校园文化</h3>
+                    <p>学校高度重视校园文化建设，形成了积极向上、丰富多彩的校园文化氛围。各类学术讲座、文艺汇演、体育赛事、志愿服务、创新创业活动蓬勃开展，为学生全面发展提供广阔平台。</p>
+                    <p>学生社团数量达80余个，涵盖学术科技、文化艺术、体育健身、志愿服务等多个领域，是学生拓展兴趣、锻炼能力的重要阵地。</p>
+                </div>
+                <div class="life-img"></div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 数据统计 -->
+    <div class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h4>50+</h4>
+                <p>本科专业</p>
+            </div>
+            <div class="stat-item">
+                <h4>1200+</h4>
+                <p>专任教师</p>
+            </div>
+            <div class="stat-item">
+                <h4>2000+</h4>
+                <p>校园面积（亩）</p>
+            </div>
+            <div class="stat-item">
+                <h4>10万+</h4>
+                <p>毕业校友</p>
+            </div>
+            <div class="stat-item">
+                <h4>80+</h4>
+                <p>学生社团</p>
+            </div>
         </div>
     </div>
 
-    <div class="card">
-        <h2>办学历史</h2>
-        <p>学校前身是安徽师范大学淮北分校，1979年更名为淮北煤炭师范学院，2010年正式更名为淮北师范大学。历经数十年发展，已成为一所以教师教育为特色、多学科协调发展的综合性师范大学。</p>
-    </div>
-
-    <div class="card">
-        <h2>学科与专业</h2>
-        <ul class="info-list">
-            <li>开设50余个本科专业，覆盖文、理、工、管、法、艺术、教育、历史等八大学科门类</li>
-            <li>拥有多个省级重点学科、特色专业与一流本科专业建设点</li>
-            <li>硕士学位授权点完善，形成本硕贯通的培养体系</li>
-            <li>师范专业优势突出，非师范专业快速发展</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h2>办学特色与优势</h2>
-        <ul class="info-list">
-            <li>师范教育底蕴深厚，安徽省基础教育师资核心培养基地</li>
-            <li>师资力量雄厚，教学与科研水平稳步提升</li>
-            <li>校园环境优美，学习氛围浓厚，生活设施完善</li>
-            <li>注重实践育人，实习实训与校企合作平台丰富</li>
-            <li>毕业生就业率高，社会认可度与美誉度持续提升</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h2>校园文化</h2>
-        <p>学校高度重视校园文化建设，形成了丰富多彩、积极向上的校园文化氛围。学术讲座、文体活动、志愿服务、创新创业活动蓬勃开展，为学生全面发展提供广阔平台。</p>
-    </div>
-
+    <!-- 页脚 -->
     <footer>
-        © 2026 淮北师范大学 - 学校简介网页 | 课程作业展示
+        <p>© 2026 淮北师范大学 - 学校简介网页 | 博学慎思 砺行致远</p>
+        <p>地址：安徽省淮北市东山路100号 | 邮编：235000</p>
     </footer>
-</div>
 </body>
 </html>
